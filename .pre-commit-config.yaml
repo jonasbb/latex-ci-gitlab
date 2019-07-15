@@ -1,0 +1,36 @@
+repos:
+  - repo: https://github.com/jonasbb/pre-commit-latex-hooks
+    rev: 0f3b1160119cddadf6155ef3097d5d3435b45bfb
+    hooks:
+      - id: american-eg-ie
+      - id: cleveref-capitalization
+      - id: consistent-spelling-et-al
+      - id: consistent-spelling-naive
+      - id: csquotes
+      - id: no-space-in-cite
+      - id: tilde-cite
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.2.3
+    hooks:
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: trailing-whitespace
+        files: ".*\\.(?:tex|py)$"
+  - repo: https://github.com/python/black
+    rev: 19.3b0
+    hooks:
+      - id: black
+        language_version: python3.7
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v4.3.21
+    hooks:
+      - id: isort
+        # https://github.com/python/black#how-black-wraps-lines
+        args:
+          [
+            "--multi-line=3",
+            "--trailing-comma",
+            "--force-grid-wrap=0",
+            "--use-parentheses",
+            "--line-width=88",
+          ]

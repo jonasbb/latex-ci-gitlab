@@ -1,0 +1,44 @@
+image: "projects.cispa.saarland:5005/bushart/docker/latex-ci:master"
+
+stages:
+  - build
+  - check
+  - artifacts
+
+# Produce all the LaTeX artifacts for the following stages
+build:
+  stage: build
+  script:
+    - make all
+  artifacts:
+    untracked: true
+    when: always
+    expire_in: 1 day
+
+# Run all the pre-commit checks also in CI such that they don't slip
+pre-commit:
+  stage: check
+  # We want a prestine checkout here
+  dependencies: []
+  script:
+    - pre-commit run --all-files --show-diff-on-failure
+
+# Perform additional sanity checks
+sanity-checks:
+  stage: check
+  dependencies:
+    - build
+  script:
+    - python3 ./.ci/sanity-checks.py
+
+# Upload the final artifacts but with a long lifetime
+artifacts:
+  stage: artifacts
+  dependencies:
+    - build
+  script:
+    - echo "Saving Artifacts"
+  artifacts:
+    paths:
+      - paper.pdf
+      - sources.zip
