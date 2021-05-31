@@ -66,7 +66,7 @@ def sanitize_url(url: str) -> str:
     """
     This function strips to the protocol, e.g., http, from urls.
 
-    This ensures that URLs can be compared, even with different protocols, for example, if both http and https is used.
+    This ensures that URLs can be compared, even with different protocols, for example, if both http and https are used.
     """
     prefixes = ["https", "http", "ftp"]
     for prefix in prefixes:
