@@ -35,7 +35,7 @@ clean:
 
 # convert svg to pdf
 figs/%.pdf: figs/%.svg
-	inkscape --export-area-drawing --without-gui --export-type=pdf --export-file=$@ $<.tmp.svg
+	inkscape --export-area-drawing --export-type=pdf --export-filename=$@ $<
 	$(pdfcrop)
 
 # convert (f)odg to pdf
