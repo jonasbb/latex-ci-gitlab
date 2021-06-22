@@ -53,4 +53,4 @@ citations: $(wildcard *.bib)
 
 .PHONY: zip
 zip:
-	zip -r sources.zip *.tex *.bib *.cls *.bst *.sty figs/*.pdf figs/*.svg
+	zip -r sources.zip *.tex *.bib *.cls *.bst *.sty figs/*.*
