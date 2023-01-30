@@ -32,13 +32,26 @@ sanity-checks:
     - python3 ./.ci/sanity-checks.py
 
 # Upload the final artifacts but with a long lifetime
-artifacts:
+artifacts:pdf:
   stage: artifacts
   dependencies:
     - build
   script:
-    - echo "Saving Artifacts"
+    - echo "Saving Paper Artifact"
   artifacts:
+    expose_as: "Paper PDF"
+    name: "Paper"
     paths:
       - paper.pdf
+
+artifacts:source:
+  stage: artifacts
+  dependencies:
+    - build
+  script:
+    - echo "Saving Paper Source Artifact"
+  artifacts:
+    expose_as: "Sources ZIP"
+    name: "Sources"
+    paths:
       - sources.zip
