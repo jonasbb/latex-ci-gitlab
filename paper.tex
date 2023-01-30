@@ -1,5 +1,17 @@
+% Some images are PDF 1.6 and cannot be included otherwise
+% Must be before any output is written
+\pdfminorversion=6
+% Enable breaking of long URLs since the two column layout is small
+\PassOptionsToPackage{hyphens}{url}
+
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+
+\usepackage{csquotes}
+\usepackage[
+    capitalise,
+    nameinlink,
+]{cleveref}
 
 % Use this to load all images from the figs/ folder
 % \usepackage{graphicx}
