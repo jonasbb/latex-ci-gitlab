@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/jonasbb/pre-commit-latex-hooks
-    rev: v1.2.0
+    rev: v1.4.0
     hooks:
       - id: american-eg-ie
       - id: cleveref-capitalization
@@ -17,20 +17,22 @@ repos:
           ]
       - id: ensure-labels-for-sections
       - id: cispa-syssec-forbidden-words
+      - id: unique-labels
+      - id: cleveref-instead-of-autoref
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.4.0
     hooks:
       - id: check-merge-conflict
       - id: check-yaml
       - id: trailing-whitespace
         types_or: ["python", "tex"]
   - repo: https://github.com/python/black
-    rev: 21.5b1
+    rev: 22.12.0
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.8.0
+    rev: v5.10.1
     hooks:
       - id: isort
         # https://github.com/python/black#how-black-wraps-lines
